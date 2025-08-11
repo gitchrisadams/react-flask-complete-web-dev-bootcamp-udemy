@@ -2,11 +2,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Search from './components/Search';
 import { useState } from 'react';
+import ImageCard from './components/ImageCard';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [images, setImages] = useState([]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +18,7 @@ const App = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log('data: ', data);
+        setImages([{ ...data, title: searchTerm }, ...images]);
       })
       .catch((err) => console.log(err));
 
@@ -31,6 +34,16 @@ const App = () => {
         setSearchTerm={setSearchTerm}
         handleSearchSubmit={handleSearchSubmit}
       />
+
+      <Container className="mt-4">
+        <Row xs={1} md={2} lg={3}>
+          {images.map((image, i) => (
+            <Col key={i} className="pb-3">
+              <ImageCard image={image} />
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 };
