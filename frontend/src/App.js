@@ -16,6 +16,9 @@ const App = () => {
         console.log("data: ", data)
       })
       .catch((err) => console.log(err))
+
+      // Clear Search Form
+      setSearchTerm('')
   }
 
   return (
