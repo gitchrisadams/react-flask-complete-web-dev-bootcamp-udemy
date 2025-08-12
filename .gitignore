@@ -24,3 +24,9 @@ yarn-error.log*
 
 # Python
 __pycache__/
+api/.DS_Store
+api/.env.local
+api/.env.development.local
+api/.env.test.local
+api/.env.production.local
+api/.env

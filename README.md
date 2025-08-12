@@ -1,5 +1,8 @@
 Tutorial from Udemy. A tutorial on using many web dev technologies. These include React, Flask/Python, Api's, and other web technologies.
 
+# Basic App info
+Environment variables are placed in .env and .env.loal files. There is also a provided .env.template and .env.local.template files without the keys in the file and checked in to version managment. Use these files as a template to create the actual env file with your secrets entered into the file. 
+
 # Frontend app
 <img width="1296" height="882" alt="image" src="https://github.com/user-attachments/assets/6de10b8c-be5d-464f-b902-3c3760f0f2e9" />
 
