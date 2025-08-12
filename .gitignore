@@ -21,3 +21,6 @@ frontend/build
 npm-debug.log*s
 yarn-debug.log*
 yarn-error.log*
+
+# Python
+__pycache__/
