@@ -5,7 +5,10 @@ import { useState } from 'react';
 import ImageCard from './components/ImageCard';
 import { Container, Row, Col } from 'react-bootstrap';
 
-const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
+// Thi is the old api key when we directly used the api from unsplash
+// const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
+
+const API_URL = process.env.REACT_APP_API_URL || 'http://127.0.0.1:5050';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -17,9 +20,11 @@ const App = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    fetch(
-      `https://api.unsplash.com/photos/random/?query=${searchTerm}&client_id=${UNSPLASH_KEY}`,
-    )
+    // This is the old api fetch directly from unsplash, left for reference
+    // fetch(
+    //   `https://api.unsplash.com/photos/random/?query=${searchTerm}&client_id=${UNSPLASH_KEY}`,
+    // )
+    fetch(`${API_URL}/new-image?query=${searchTerm}`)
       .then((res) => res.json())
       .then((data) => {
         setImages([{ ...data, title: searchTerm }, ...images]);
